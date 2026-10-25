@@ -18,6 +18,7 @@ Three files: `index.html` (canvas `#board`, side panel with score/lines/level, `
 - `loop(ts)` is `requestAnimationFrame`, accumulating `dropAccum` against `dropInterval`. Speed is `max(100, 1000 − (level − 1) × 90)` ms; level rises every 10 lines.
 - Scoring: `LINE_SCORES` × level; hard drop +2/cell, soft drop +1/row.
 - A piece that collides on `spawn()` triggers `endGame()`.
+- Theming: colors in `style.css` are CSS variables (`:root` = dark, `[data-theme="light"]` = light). Canvas colors that CSS can't reach (grid, block highlight) are read from `--grid`/`--highlight` in `applyTheme`. The choice is stored in `localStorage` (`theme`); default is dark.
 - If you change `COLS`, `ROWS` or `BLOCK`, update the `<canvas id="board">` width/height in `index.html` to `COLS×BLOCK` by `ROWS×BLOCK` (currently 300×600).
 
 `README.md` has a fuller description and the game flow diagram.
